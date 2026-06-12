@@ -1,6 +1,6 @@
 cask "noop" do
-  version "2.3.1"
-  sha256 "8d187112131a90cd978afaa7162c8813d5556fdf076b4a73f8d98dde6c109518"
+  version "2.3.2"
+  sha256 "208a5860cf92b832d4fa5aeea7bb084d2609dbd7d408d4d261915e8db5940b3f"
 
   url "https://github.com/NoopApp/noop/releases/download/v#{version}/NOOP-v#{version}-macos.zip"
   name "NOOP"
