@@ -9,5 +9,10 @@ cask "noop" do
 
   app "NOOP.app"
 
-  caveats "NOOP ships anonymously and is unsigned (no Apple Developer ID), so on first launch macOS Gatekeeper will block it. On macOS 15 Sequoia and later: try to open NOOP once, then go to System Settings > Privacy & Security, scroll down, and click 'Open Anyway' next to NOOP. (On macOS 14 and earlier you can right-click NOOP in /Applications and choose Open.) Update later with: brew upgrade --cask noop."
+  postflight do
+    system_command "xattr",
+                   args: ["-rd", "com.apple.quarantine", "#{appdir}/NOOP.app"]
+  end
+
+  caveats "NOOP ships anonymously and is unsigned (no Apple Developer ID). This cask strips the Gatekeeper quarantine flag on install, so it should open directly. Update later with: brew upgrade --cask noop."
 end
